@@ -69,7 +69,7 @@ my %ips;
 $ips{'dingo.care2.com'} = "38.99.122.3";
 $ips{'www.thepetitionsite.com'} = "38.99.122.3";
 $ips{'www.care2.com'} = "38.99.122.3";
-$ips{'earthworm.care2.com'} = "10.11.0.18";
+$ips{'earthworm.care2.com'} = "10.32.1.2";
 
 $buffer .= $STR . "\n";
 $buffer .= $STR2 . "\n";
