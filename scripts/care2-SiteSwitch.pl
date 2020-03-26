@@ -9,8 +9,11 @@ print <<USAGE;
 	To Check the Status:
 		sudo $0
 
-	To Enable:
+	To Enable: Full SJC1 Testing
 		sudo $0 enable
+
+	To Enable: ProxyCache Testing
+		sudo $0 enable-proxy
 		
 	To Disable:  ( reverts to the /etc/hosts.presiteswitch file )
 		sudo $0 disable
@@ -66,10 +69,17 @@ foreach my $l ( split (/\n/, $buffer) ) {
 	}
 }
 my %ips;
-$ips{'dingo.care2.com'} = "38.99.122.3";
-$ips{'www.thepetitionsite.com'} = "38.99.122.3";
-$ips{'www.care2.com'} = "38.99.122.3";
-$ips{'earthworm.care2.com'} = "10.32.1.2";
+if (  $arg =~ /enable$/i ) {
+	$ips{'dingo.care2.com'} = "38.99.122.3";
+	$ips{'www.thepetitionsite.com'} = "38.99.122.3";
+	$ips{'www.care2.com'} = "38.99.122.3";
+	$ips{'earthworm.care2.com'} = "10.32.1.2";
+} elsif (  $arg =~ /enable-proxy$/i ) {
+	$ips{'dingo.care2.com'} = "38.99.122.6";
+	$ips{'www.thepetitionsite.com'} = "38.99.122.6";
+	$ips{'www.care2.com'} = "38.99.122.6";
+
+}
 
 $buffer .= $STR . "\n";
 $buffer .= $STR2 . "\n";
